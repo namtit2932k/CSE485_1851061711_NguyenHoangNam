@@ -1,6 +1,5 @@
 ﻿<?php
 
-// Replace this with your own email address
 $siteOwnersEmail = 'namtit2932k@gmail.com';
 global $message;
 global $error;

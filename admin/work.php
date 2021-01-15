@@ -8,7 +8,7 @@ include('configadmin.php');
   <a href="info.php">Info</a>
   <a href="education.php">Education</a>
   <a href="work.php">Work</a>
-  <a href="skill.php">Skill</a>
+  <a href="testimonial.php">Testimonial</a>
   <a href="link.php">Link</a>
   <a href="../index.php"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
@@ -21,7 +21,8 @@ include('configadmin.php');
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>ID</th>
+                    <th>Work ID</th>
+                    <th>User ID</th>
                     <th>Work Name</th>
                     <th>Work Location</th>
                     <th>Date</th>
@@ -42,6 +43,7 @@ include('configadmin.php');
                 echo '<td>'.$data[2].'</td>';
                 echo '<td>'.$data[3].'</td>';
                 echo '<td>'.$data[4].'</td>';
+                echo '<td>'.$data[5].'</td>';
                 echo '<td><a href="update.php?id='.$data[0].'" role="button"><i class="fas fa-pen mr-2"></i></a><a href="delete.php?id='.$data[0].'" role="button"><i class="fas fa-trash-alt ml-2"></i></a></td>';
                 echo '</tr>';
             }

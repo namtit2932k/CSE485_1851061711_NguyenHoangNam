@@ -8,7 +8,7 @@ include('configadmin.php');
   <a href="info.php">Info</a>
   <a href="education.php">Education</a>
   <a href="work.php">Work</a>
-  <a href="skill.php">Skill</a>
+  <a href="testimonial.php">Testimonial</a>
   <a href="link.php">Link</a>
   <a href="../index.php"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
@@ -21,10 +21,10 @@ include('configadmin.php');
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>ID</th>
+                    <th>User ID</th>
                     <th>Name</th>
-                    <th>About</th>
                     <th>Introduce</th>
+                    <th>About</th>
                     <th>Action</th>
                 </tr>
             </thead>

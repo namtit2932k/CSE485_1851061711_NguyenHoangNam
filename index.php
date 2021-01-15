@@ -53,7 +53,7 @@
       </nav> <!-- end #nav-wrap -->
       
       <?php 
-         $sql="SELECT * from info,link where info.id='1' AND link.id='1'";
+         $sql="SELECT * from info,link where info.id='1' AND link.id=info.id";
          $res=mysqli_query($conn,$sql);
          $datas=mysqli_fetch_all($res);
          foreach($datas as $data)
@@ -64,10 +64,10 @@
          echo   '<h3>'.$data[2].'<h3>';
          echo '<hr />';
          echo '<ul class="social">';
-         echo '<li>'.'<a href="'.$data[5].'">'.'<i class="fa fa-facebook">'.'</i>'.'</a>'.'</li>';
-         echo '<li>'.'<a href="'.$data[6].'">'.'<i class="fa fa-instagram">'.'</i>'.'</a>'.'</li>';
-         echo '<li>'.'<a href="'.$data[7].'">'.'<i class="fa fa-twitter">'.'</i>'.'</a>'.'</li>';
-         echo '<li>'.'<a href="'.$data[8].'">'.'<i class="fa fa-skype">'.'</i>'.'</a>'.'</li>';
+         echo '<li>'.'<a href="'.$data[7].'">'.'<i class="fa fa-facebook">'.'</i>'.'</a>'.'</li>';
+         echo '<li>'.'<a href="'.$data[8].'">'.'<i class="fa fa-instagram">'.'</i>'.'</a>'.'</li>';
+         echo '<li>'.'<a href="'.$data[9].'">'.'<i class="fa fa-twitter">'.'</i>'.'</a>'.'</li>';
+         echo '<li>'.'<a href="'.$data[10].'">'.'<i class="fa fa-skype">'.'</i>'.'</a>'.'</li>';
          echo '</ul>';
          echo  '</div>';
          echo '</div>';
@@ -97,10 +97,10 @@
 
             <h2>About Me</h2>
             <?php
-            $sql2="SELECT * from info where id='1'";
-            $res2=mysqli_query($conn,$sql2);
-            $datas2=mysqli_fetch_all($res2);
-            foreach($datas2 as $data)
+            $sql="SELECT * from info where id='1'";
+            $res=mysqli_query($conn,$sql);
+            $datas=mysqli_fetch_all($res);
+            foreach($datas as $data)
             {
             echo '<p>'.$data[3].'</p>';
             }
@@ -132,34 +132,18 @@
             <div class="row item">
 
                <div class="twelve columns">
-
-                  <h3>University of Life</h3>
-                  <p class="info">Master in Graphic Design <span>&bull;</span> <em class="date">April 2007</em></p>
-
-                  <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-                  ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                  Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Nullam dictum felis eu pede mollis pretium.
-                  </p>
-
-               </div>
-
-            </div> <!-- item end -->
-
-            <div class="row item">
-
-               <div class="twelve columns">
-
-                  <h3>School of Cool Designers</h3>
-                  <p class="info">B.A. Degree in Graphic Design <span>&bull;</span> <em class="date">March 2003</em></p>
-
-                  <p>
-                  This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-                  Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
-                  nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan
-                  ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat
-                  </p>
+               
+               <?php 
+               $sql="SELECT * from education where id='1'";
+               $res=mysqli_query($conn,$sql);
+               $datas=mysqli_fetch_all($res);
+               foreach($datas as $data)
+               {
+                  echo  '<h3>'.$data[2].'</h3>';
+                  echo  '<p class="info">'.$data[3].'<span>'."&bull;".'</span>'.'<em class="date">'.$data[4].'</em>'.'</p>';
+                  echo  '<p>'.$data[5].'</p>';
+               }
+               ?>
 
                </div>
 
@@ -184,33 +168,17 @@
 
                <div class="twelve columns">
 
-                  <h3>Awesome Design Studio</h3>
-                  <p class="info">Senior UX Designer <span>&bull;</span> <em class="date">March 2010 - Present</em></p>
-
-                  <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-                  ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                  Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. Nullam dictum felis eu pede mollis pretium.
-                  </p>
-
-               </div>
-
-            </div> <!-- item end -->
-
-            <div class="row item">
-
-               <div class="twelve columns">
-
-                  <h3>Super Cool Studio</h3>
-                  <p class="info">UX Designer <span>&bull;</span> <em class="date">March 2007 - February 2010</em></p>
-
-                  <p>
-                  This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-                  Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
-                  nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan
-                  ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat
-                  </p>
+               <?php 
+               $sql="SELECT * from work where id='1'";
+               $res=mysqli_query($conn,$sql);
+               $datas=mysqli_fetch_all($res);
+               foreach($datas as $data)
+               {
+                  echo  '<h3>'.$data[2].'</h3>';
+                  echo  '<p class="info">'.$data[3].'<span>'."&bull;".'</span>'.'<em class="date">'.$data[4].'</em>'.'</p>';
+                  echo  '<p>'.$data[5].'</p>';
+               }
+               ?>
 
                </div>
 
@@ -231,10 +199,7 @@
 
          <div class="nine columns main-col">
 
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-            eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-            voluptatem sequi nesciunt.
+            <p>If you hope to become a web developer, you must understand HTML and CSS. HTML is the most used markup language across the web, and web developers use it to create web pages on the Internet. CSS, on the other hand, is used to style the website. It's responsible for the choice of fonts, colors and layout in a website's design. Whereas HTML lays the foundation for a webpage, CSS styles it.
             </p>
 
 				<div class="bars">
@@ -243,6 +208,7 @@
 						<li><span class="bar-expand css"></span><em>CSS</em></li>
 						<li><span class="bar-expand html5"></span><em>HTML5</em></li>
                   <li><span class="bar-expand jquery"></span><em>jQuery</em></li>
+                  <li><span class="bar-expand photoshop"></span><em>Photoshop</em></li>
 					</ul>
 
 				</div><!-- end skill-bars -->
@@ -273,27 +239,20 @@
                <div class="flexslider">
 
                   <ul class="slides">
-
-                     <li>
-                        <blockquote>
-                           <p>Your work is going to fill a large part of your life, and the only way to be truly satisfied is
-                           to do what you believe is great work. And the only way to do great work is to love what you do.
-                           If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it.
-                           </p>
-                           <cite>Steve Jobs</cite>
-                        </blockquote>
-                     </li> <!-- slide ends -->
-
-                     <li>
-                        <blockquote>
-                           <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-                           Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
-                           nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
-                           </p>
-                           <cite>Mr. Adobe</cite>
-                        </blockquote>
-                     </li> <!-- slide ends -->
-
+                  <?php 
+                  $sql="SELECT * from testimonial where id='1'";
+                  $res=mysqli_query($conn,$sql);
+                  $datas=mysqli_fetch_all($res);
+                  foreach($datas as $data)
+                  {
+                     echo '<li>';
+                        echo '<blockquote>';
+                           echo '<p>'.$data[2].'</p>';
+                           echo '<cite>'.$data[3].'</cite>';
+                        echo '</blockquote>';
+                     echo '</li>';
+                  }
+                  ?>
                   </ul>
 
                </div> <!-- div.flexslider ends -->
@@ -321,9 +280,7 @@
 
             <div class="ten columns">
 
-                  <p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                  eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-                  voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                  <p class="lead">Thank you for your time.<br>Please feel free to contact me if you need any further information.<br>I’m looking forward to your reply.
                   </p>
 
             </div>
@@ -405,13 +362,21 @@
       <div class="row">
 
          <div class="twelve columns">
-
-            <ul class="social-links">
-               <li><a href="https://www.facebook.com/mlgsmokeweed/"><i class="fa fa-facebook"></i></a></li>
-               <li><a href="https://twitter.com/rocket293"><i class="fa fa-twitter"></i></a></li>
-               <li><a href="https://www.instagram.com/shubniggurath14/"><i class="fa fa-instagram"></i></a></li>
-               <li><a href="https://join.skype.com/Xx80PZmVgQjf"><i class="fa fa-skype"></i></a></li>
-            </ul>
+            
+            <?php 
+            $sql="SELECT * from link where id='1'";
+            $res=mysqli_query($conn,$sql);
+            $datas=mysqli_fetch_all($res);
+            foreach($datas as $data)
+            {
+               echo '<ul class="social-links">';
+               echo '<li>'.'<a href="'.$data[1].'">'.'<i class="fa fa-facebook">'.'</i>'.'</a>'.'</li>';
+               echo '<li>'.'<a href="'.$data[2].'">'.'<i class="fa fa-instagram">'.'</i>'.'</a>'.'</li>';
+               echo '<li>'.'<a href="'.$data[3].'">'.'<i class="fa fa-twitter">'.'</i>'.'</a>'.'</li>';
+               echo '<li>'.'<a href="'.$data[4].'">'.'<i class="fa fa-skype">'.'</i>'.'</a>'.'</li>';
+               echo '</ul>';
+            }
+            ?>
 
             <ul class="copyright">
                <li>&copy; Project resume</li>
