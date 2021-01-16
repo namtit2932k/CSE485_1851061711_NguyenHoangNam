@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedin'])) {
 }
 ?>
 <body>
-<title>Info</title>
+<title>Users</title>
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="info.php">Info</a>
@@ -24,20 +24,26 @@ if (!isset($_SESSION['loggedin'])) {
 
 <div id="main">
     <div class="container">
-    <h1 class="" style="text-align:left">Info</h1>
+    <form class="form-inline">
+        <div class="form-group">
+            <h1 class="" style="text-align:left">Users</h1>
+            <a name="" id="" class="btn btn-primary ml-3" href="createusers.php" role="button">Add <i class="fas fa-plus"></i></a>
+
+        </div>
+    </form>
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
+                    <th>Account ID</th>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Introduce</th>
-                    <th>About</th>
+                    <th>Username</th>
+                    <th>Password</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
             <?php 
-            $sql="select * from info";
+            $sql="select * from users";
             $res=mysqli_query($conn,$sql);
             $datas=mysqli_fetch_all($res);
             foreach($datas as $data)
@@ -47,7 +53,7 @@ if (!isset($_SESSION['loggedin'])) {
                 echo '<td>'.$data[1].'</td>';
                 echo '<td>'.$data[2].'</td>';
                 echo '<td>'.$data[3].'</td>';
-                echo '<td><a href="updateinfo.php?id='.$data[0].'" role="button"><i class="fas fa-pen ml-3"></i></a></td>';
+                echo '<td><a href="updateusers.php?id='.$data[0].'" role="button"><i class="fas fa-pen mr-2"></i></a><a href="deleteusers.php?id='.$data[0].'" role="button"><i class="fas fa-trash-alt ml-2"></i></a></td>';
                 echo '</tr>';
             }
             mysqli_close($conn);

@@ -1,5 +1,10 @@
 <?php
 include('configadmin.php');
+session_start();
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: login.php');
+	exit;
+}
 ?>
 <body>
 <title>Skill</title>
@@ -10,6 +15,8 @@ include('configadmin.php');
   <a href="work.php">Work</a>
   <a href="testimonial.php">Testimonial</a>
   <a href="link.php">Link</a>
+  <a href="users.php">Users</a>
+  <a href="logout.php">Log out</a>
   <a href="../index.php"><i class="fas fa-arrow-left"></i> Back</a>
 </div>
 
@@ -17,14 +24,20 @@ include('configadmin.php');
 
 <div id="main">
     <div class="container">
-    <h1 class="" style="text-align:left">Testimonial</h1>
+    <form class="form-inline">
+        <div class="form-group">
+            <h1 class="" style="text-align:left">Testimonials</h1>
+            <a name="" id="" class="btn btn-primary ml-3" href="createtestimonials.php" role="button">Add <i class="fas fa-plus"></i></a>
+
+        </div>
+    </form>
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
                     <th>Testimonial ID</th>
-                    <th>User ID</th>
-                    <th>Testimonials</th>
+                    <th>ID</th>
                     <th>Customers words</th>
+                    <th>Customers name</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -40,7 +53,7 @@ include('configadmin.php');
                 echo '<td>'.$data[1].'</td>';
                 echo '<td>'.$data[2].'</td>';
                 echo '<td>'.$data[3].'</td>';
-                echo '<td><a href="update.php?id='.$data[0].'" role="button"><i class="fas fa-pen mr-2"></i></a><a href="delete.php?id='.$data[0].'" role="button"><i class="fas fa-trash-alt ml-2"></i></a></td>';
+                echo '<td><a href="updatetestimonial.php?id='.$data[0].'" role="button"><i class="fas fa-pen mr-2"></i></a><a href="deletetestimonial.php?id='.$data[0].'" role="button"><i class="fas fa-trash-alt ml-2"></i></a></td>';
                 echo '</tr>';
             }
             mysqli_close($conn);

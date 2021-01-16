@@ -25,6 +25,7 @@
    <link rel="shortcut icon" href="images/favicon.png" >
    <?php
    include('config.php');
+   session_start();
    ?>
 
 </head>
@@ -47,7 +48,15 @@
 	         <li><a class="smoothscroll" href="#resume">Resume</a></li>
             <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
             <li><a class="smoothscroll" href="#contact">Contact</a></li>
-            <li><a href="admin/info.php">Admin</a></li>
+            <?php
+            if (!isset($_SESSION['loggedin'])) {
+               echo'<li>'.'<a href="admin/login.php">'."Admin".'</a></li>';
+            }
+            else
+            {
+               echo'<li>'.'<a href="admin/info.php">'."Admin".'</a></li>';
+            }
+            ?>
          </ul> <!-- end #nav -->
 
       </nav> <!-- end #nav-wrap -->
@@ -64,10 +73,10 @@
          echo   '<h3>'.$data[2].'<h3>';
          echo '<hr />';
          echo '<ul class="social">';
-         echo '<li>'.'<a href="'.$data[7].'">'.'<i class="fa fa-facebook">'.'</i>'.'</a>'.'</li>';
-         echo '<li>'.'<a href="'.$data[8].'">'.'<i class="fa fa-instagram">'.'</i>'.'</a>'.'</li>';
-         echo '<li>'.'<a href="'.$data[9].'">'.'<i class="fa fa-twitter">'.'</i>'.'</a>'.'</li>';
-         echo '<li>'.'<a href="'.$data[10].'">'.'<i class="fa fa-skype">'.'</i>'.'</a>'.'</li>';
+         echo '<li>'.'<a href="'.$data[5].'">'.'<i class="fa fa-facebook">'.'</i>'.'</a>'.'</li>';
+         echo '<li>'.'<a href="'.$data[6].'">'.'<i class="fa fa-instagram">'.'</i>'.'</a>'.'</li>';
+         echo '<li>'.'<a href="'.$data[7].'">'.'<i class="fa fa-twitter">'.'</i>'.'</a>'.'</li>';
+         echo '<li>'.'<a href="'.$data[8].'">'.'<i class="fa fa-skype">'.'</i>'.'</a>'.'</li>';
          echo '</ul>';
          echo  '</div>';
          echo '</div>';
@@ -89,7 +98,7 @@
 
          <div class="three columns">
 
-            <img class="profile-pic"  src="images/profilepic.jpg" alt="" />
+            <img class="profile-pic"  src="images/profilepic2.jpg" alt="" />
 
          </div>
 
@@ -340,10 +349,10 @@
 
 					   <h4>Address and Phone</h4>
 					   <p class="address">
-						   Jonathan Doe<br>
-						   1600 Amphitheatre Parkway <br>
-						   Mountain View, CA 94043 US<br>
-						   <span>(123) 456-7890</span>
+						   Nguyen Anh Tuan<br>
+						   2 Kim Giang Street <br>
+						   Ha Noi, Viet Nam<br>
+						   <span>(+84) 966-375-192</span>
 					   </p>
 
 				   </div>
@@ -379,7 +388,7 @@
 
             <ul class="copyright">
                <li>&copy; Project resume</li>
-               <li>Design by <a href="http://www.styleshout.com/" title="Styleshout" target="_blank">Styleshout</a></li>   
+               <li>Design by <a href="https://www.facebook.com/mlgsmokeweed/" title="Namtit" target="_blank">Namtit</a></li>   
             </ul>
 
          </div>

@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="./style/navbar.css">
-    <script src="./style/navbar.js"></script>
+    <link rel="stylesheet" href="./navbar/navbar.css">
+    <script src="./navbar/navbar.js"></script>
     <script src="./js/jquery-3.5.1.min.js"></script>
 	  <script src="./js/bootstrap.min.js"></script>
     <script src="./js/all.js"></script>
